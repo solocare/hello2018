@@ -26,14 +26,14 @@ import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLContexts;
 import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
 import org.apache.http.entity.ContentType;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.entity.mime.content.StringBody;
+//import org.apache.http.entity.mime.MultipartEntityBuilder;
+//import org.apache.http.entity.mime.content.FileBody;
+//import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.junit.Test;
+//import org.junit.Test;
  
 public class HttpClientTest {
  
@@ -238,41 +238,41 @@ public class HttpClientTest {
 	 * 上传文件
 	 */
 	public void upload() {
-		CloseableHttpClient httpclient = HttpClients.createDefault();
-		try {
-			HttpPost httppost = new HttpPost("http://localhost:8080/myDemo/Ajax/serivceFile.action");
- 
-			FileBody bin = new FileBody(new File("F:\\image\\sendpix0.jpg"));
-			StringBody comment = new StringBody("A binary file of some kind", ContentType.TEXT_PLAIN);
- 
-			HttpEntity reqEntity = MultipartEntityBuilder.create().addPart("bin", bin).addPart("comment", comment).build();
- 
-			httppost.setEntity(reqEntity);
- 
-			System.out.println("executing request " + httppost.getRequestLine());
-			CloseableHttpResponse response = httpclient.execute(httppost);
-			try {
-				System.out.println("----------------------------------------");
-				System.out.println(response.getStatusLine());
-				HttpEntity resEntity = response.getEntity();
-				if (resEntity != null) {
-					System.out.println("Response content length: " + resEntity.getContentLength());
-				}
-				EntityUtils.consume(resEntity);
-			} finally {
-				response.close();
-			}
-		} catch (ClientProtocolException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				httpclient.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+//		CloseableHttpClient httpclient = HttpClients.createDefault();
+//		try {
+//			HttpPost httppost = new HttpPost("http://localhost:8080/myDemo/Ajax/serivceFile.action");
+// 
+//			FileBody bin = new FileBody(new File("F:\\image\\sendpix0.jpg"));
+//			StringBody comment = new StringBody("A binary file of some kind", ContentType.TEXT_PLAIN);
+// 
+//			HttpEntity reqEntity = MultipartEntityBuilder.create().addPart("bin", bin).addPart("comment", comment).build();
+// 
+//			httppost.setEntity(reqEntity);
+// 
+//			System.out.println("executing request " + httppost.getRequestLine());
+//			CloseableHttpResponse response = httpclient.execute(httppost);
+//			try {
+//				System.out.println("----------------------------------------");
+//				System.out.println(response.getStatusLine());
+//				HttpEntity resEntity = response.getEntity();
+//				if (resEntity != null) {
+//					System.out.println("Response content length: " + resEntity.getContentLength());
+//				}
+//				EntityUtils.consume(resEntity);
+//			} finally {
+//				response.close();
+//			}
+//		} catch (ClientProtocolException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		} finally {
+//			try {
+//				httpclient.close();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
 	}
 }
 //</namevaluepair></namevaluepair></namevaluepair></namevaluepair>

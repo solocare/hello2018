@@ -60,28 +60,28 @@ public class UtilRest {
     	JSONObject response=UtilRest.post("https://118.85.194.45:8080/");
 	}
 	public static JSONObject get(String targetUrl) {
-		HttpClient httpClient = new HttpClient();
- 
-		HttpMethodBase method = new GetMethod();
-		JSONObject response = null;
-		try {
-			method.setURI(new URI(targetUrl, false));
-			int statusCode = httpClient.executeMethod(method);
-			if (statusCode != HttpStatus.SC_OK) {
-				System.out.println("Method failed: "
-						+ method.getStatusLine() + " for url " + targetUrl);
-			}
-			String strResponse = method.getResponseBodyAsString();
-			response = JSONObject.fromObject(strResponse);
-			return response;
-		} catch (Exception e) {
-			log.error("Please check your provided http address!");
-		} finally {
-			if (method != null)
-				method.releaseConnection();
-		}
-		if (response == null)
-			return null;
+//		HttpClient httpClient = new HttpClient();
+// 
+//		HttpMethodBase method = new GetMethod();
+//		JSONObject response = null;
+//		try {
+//			method.setURI(new URI(targetUrl, false));
+//			int statusCode = httpClient.executeMethod(method);
+//			if (statusCode != HttpStatus.SC_OK) {
+//				System.out.println("Method failed: "
+//						+ method.getStatusLine() + " for url " + targetUrl);
+//			}
+//			String strResponse = method.getResponseBodyAsString();
+//			response = JSONObject.fromObject(strResponse);
+//			return response;
+//		} catch (Exception e) {
+//			log.error("Please check your provided http address!");
+//		} finally {
+//			if (method != null)
+//				method.releaseConnection();
+//		}
+//		if (response == null)
+//			return null;
 		return null;
 	}
 	public static JSONObject post(String targetUrl) {
